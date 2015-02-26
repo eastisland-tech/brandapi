@@ -7,8 +7,8 @@ def create_app(config_filename):
     app.config.from_object(config_filename)
     app.wsgi_app = ProxyFix(app.wsgi_app)
     # Register blueprints
-    #from brandapi.scores_v1.views import scores
-    #app.register_blueprint(scores, url_prefix='/brands/api/v1/scores')
+    from brandapi.brands_v1.views import brands_v1
+    app.register_blueprint(brands_v1, url_prefix='/brandapi/api/v1/brands')
     return app
 
 
