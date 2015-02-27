@@ -3,6 +3,10 @@ from werkzeug.contrib.fixers import ProxyFix
 
 
 def create_app(config_filename):
+    """
+    A reuseable function for when you
+    need to creat multiple app instances.
+    """
     app = Flask(__name__)
     app.config.from_object(config_filename)
     app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -20,6 +24,7 @@ app_config = app.config
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({'error': 'Not found'}), 404
+
 
 if __name__ == '__main__':
     app.run()

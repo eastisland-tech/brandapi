@@ -6,7 +6,7 @@ from pprint import pprint
 from datetime import datetime, timedelta
 from flask import *
 
-from brandapi import app, db
+from brandapi import app
 
 
 os.environ['PYTHONINSPECT'] = 'True'
